@@ -1,32 +1,39 @@
-﻿Console.WriteLine("== Tiny calculator ==");
+﻿using System.Data;
 
-int dividend = ReadNumber("Dividend");
-int divisor = ReadNumber("Divisor");
+Console.WriteLine("Tiny Calculator");
+int firstNumber = 0;
 
-if (divisor == 0)
+firstNumber = GetNumbers(firstNumber, out int secondNumber);
+int Rechung = GetRechnung();
+Console.WriteLine($"{Rechung} and {firstNumber},{secondNumber} = {GetAnswer(Rechung, firstNumber, secondNumber)}");
+
+static int GetRechnung()
 {
-    Console.ForegroundColor = ConsoleColor.Red;
-    Console.WriteLine("Divisor darf nicht 0 sein.");
-    Console.ResetColor();
+    Console.Write("Wie möchtest du rechnen? (+ - * /):");
+    string z = Console.ReadLine();
+    if (z == "+") return 2;
+    if (z == "-") return 3;
+    if (z == "*") return 4;
+    if (z == ":") return 5;
+    return 2;
 }
-else
+
+static int GetNumbers(int x, out int y)
 {
-    Console.ForegroundColor = ConsoleColor.Green;
-    Console.WriteLine($"{dividend} / {divisor} = {dividend / divisor}");
-    Console.ResetColor();
+    Console.Write("first Number: ");
+    x = Convert.ToInt32(Console.ReadLine());
+
+    Console.Write("second Number:");
+    y = Convert.ToInt32(Console.ReadLine());
+
+    return x;
 }
-static int ReadNumber(string name)
+static int GetAnswer(int R, int first, int second)
 {
-    while (true)
-    {
-        Console.Write($"{name}: ");
-        string input = Console.ReadLine();
-        if (int.TryParse(input, out int dividend))
-        {
-            return dividend;
-        }
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine($"{input} is not a number.");
-        Console.ResetColor();
-    }
+    int answer = 0;
+    if (R == 2 && first != null && second != null) return answer = first + second;
+    if (R == 3 && first != null && second != null) return answer = first - second;
+    if (R == 4 && first != null && second != null) return answer = first * second;
+    if (R == 5 && first != null && second != null) return answer = first * second;
+    return 0;
 }
