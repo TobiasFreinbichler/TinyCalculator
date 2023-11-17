@@ -2,7 +2,7 @@
 
 Console.WriteLine("Tiny Calculator");
 int firstNumber = 0;
-
+Console.WriteLine("Ich mag programmieren");
 firstNumber = GetNumbers(firstNumber, out int secondNumber);
 int Rechung = GetRechnung();
 Console.WriteLine($"{Rechung} and {firstNumber},{secondNumber} = {GetAnswer(Rechung, firstNumber, secondNumber)}");
@@ -66,3 +66,4 @@ static int GetAdditionalNum()
     int x = Convert.ToInt32(Console.ReadLine());
     return x;
 }
+Console.WriteLine(  "Nicht!");
