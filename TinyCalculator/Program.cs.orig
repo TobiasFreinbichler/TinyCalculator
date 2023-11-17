@@ -12,21 +12,14 @@ if (CheckIfContinue())
 {
     Rechung = GetRechnung();
     Console.WriteLine($"Your result is {GetAnswer(Rechung, Answer, GetAdditionalNum())}");
-    if (z == "-") return 3;
-    if (z == "*") return 4;
-    if (z == ":") return 5;
-    return 2;
 }
 static bool CheckIfContinue()
-static int GetNumbers(int x, out int y)
 {
     Console.Write("Do you want to continue with this result? (J/N):");
     string s = Console.ReadLine();
     if (s == "J") return true;
     if (s == "N") return false;
     return false;
-
-    return x;
 }
 
 
